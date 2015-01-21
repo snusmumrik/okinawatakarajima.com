@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>沖縄宝島 沖縄 売ります 買います あげます 交換</title>
+    <meta name="description" content="沖縄宝島 沖縄の売ります・買いますの個人売買総合サイトです。">
+    <meta name="keywords" content="沖縄宝島,沖縄,個人売買,リユース,リサイクル,売ります,買います,オークション,交換">
+    <meta http-equiv="content-type" content="text/html; charset=utf-8">
+    <meta http-equiv="content-style-type" content="text/css">
+    <meta http-equiv="keywords" content="沖縄宝島">
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+
+    <div class="navbar navbar-default navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <a href="/" class="navbar-brand">沖縄宝島</a>
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav">
+            <li>
+              <a href="/">沖縄の個人売買総合サイト</a>
+            </li>
+          </ul>
+
+          <ul class="nav navbar-nav navbar-right">
+            <li>
+              <a href="/rules"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>ルール・免責事項</a>
+            </li>
+            <li>
+              <a href="/faq"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>よくある質問</a>
+            </li>
+            <% if user_signed_in? %>
+              <li><%= link_to t("links.user.sign_out"), destroy_user_session_path, :method => :delete, data: { confirm: t("messages.sign_out") } %></li>
+            <% else %>
+              <li><%= link_to t("links.user.sign_in"), new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <% if notice %>
+        <div class="alert alert-success">
+          <p id="notice"><%= notice %></p>
+        </div>
+      <% end %>
+      <% if alert %>
+        <div class="alert alert-error">
+          <p id="alert"><%= alert %></p>
+        </div>
+      <% end %>
+    </div>
+
+    <div class="jumbotron">
+      <header class="center">
+        <h1><a href="/"><img src="/logo.png" alt="沖縄宝島"></a></h1>
+      </header>
+
+      <%= yield %>
+
+    </div>
+
+    <footer>
+      <div>&copy;<%= Date.today.year %>
+        <a href="/">沖縄宝島 okinawatakarajima.com</a>
+      </div>
+    </footer>
+  </body>
+</html>
