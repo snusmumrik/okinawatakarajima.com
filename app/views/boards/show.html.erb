@@ -21,8 +21,8 @@
             <% end %>
           <% end %>
           <div class="right">
-            <% if user_signed_in? && %>
-              <%= image_tag current_user.image.url(:thumb), height:40 %>
+            <% if post.user && %>
+              <%= image_tag post.user.image.url(:thumb), height:40 %>
             <% end %>
             <%= post.name %>
             <%= mail_to post.email, "", class: "glyphicon glyphicon-envelope" unless post.email.blank? %>
