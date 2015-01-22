@@ -5,6 +5,7 @@ html {
 
 body {
     font-family: "ヒラギノ明朝 Pro W6", "Hiragino Mincho Pro", "HGS明朝E", "ＭＳ Ｐ明朝", serif, monospace !important;
+    padding-top: 50px;
     padding-bottom: 60px;
 }
 
@@ -65,6 +66,10 @@ label {
 
 input[type="file"] {
     margin-bottom: 10px;
+}
+
+.alert {
+    text-align: center;
 }
 
 .pagination {
