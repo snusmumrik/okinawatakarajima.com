@@ -32,6 +32,7 @@ class RepliesController < ApplicationController
     if @reply.save
       ReplyMailer.new_reply_email(@reply).deliver_now
       ReplyMailer.reply_notification_email(@reply).deliver_now
+
       session[:post_id] = nil
       respond_with(@post, location: board_path(@post.board), notice: "返信しました。")
     else

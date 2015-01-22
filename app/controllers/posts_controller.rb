@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
@@ -37,6 +38,7 @@ class PostsController < ApplicationController
       end
       PostMailer.new_post_email(@post).deliver_now
       session[:board_id] = nil
+      flash[:notice] = "投稿しました。"
       respond_with(@post, location: board_path(@post.board))
     else
       respond_with(@post)
