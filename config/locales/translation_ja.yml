@@ -24,6 +24,7 @@ ja:
 
       post:
         board: :activerecord.models.board  #g
+        delete_key: 削除キー
         deleted_at: deleted_at  #g
         email: メールアドレス
         images: 画像

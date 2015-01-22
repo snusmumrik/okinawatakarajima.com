@@ -1,5 +1,5 @@
 class PostsController < ApplicationController
-  # before_action :set_post, only: [:show, :edit, :update, :destroy]
+  before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   respond_to :html
 
@@ -47,17 +47,18 @@ class PostsController < ApplicationController
   #   respond_with(@post)
   # end
 
-  # def destroy
-  #   @post.destroy
-  #   respond_with(@post)
-  # end
+  def destroy
+    @board = @post.board
+    @post.destroy if params[:delete_key].to_a[0][1] == @post.delete_key
+    respond_with(@post, location: board_path(@board))
+  end
 
   private
-    # def set_post
-    #   @post = Post.find(params[:id])
-    # end
+    def set_post
+      @post = Post.find(params[:id])
+    end
 
     def post_params
-      params.require(:post).permit(:board_id, :title, :text, :name, :email, :deleted_at, images_attributes: [:image])
+      params.require(:post).permit(:board_id, :title, :text, :name, :email, :delete_key, :deleted_at, images_attributes: [:image])
     end
 end

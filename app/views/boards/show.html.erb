@@ -26,7 +26,11 @@
             <% end %>
             <%= post.name %>
             <%= mail_to post.email, "", class: "glyphicon glyphicon-envelope" unless post.email.blank? %>
-            <span class="small"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
+            <span class="small"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span><br>
+            <%= form_tag post, method: :delete do %>
+              <%= text_field :delete_key, {url: "posts/#{post.id}"}, placeholder: t("activerecord.attributes.post.delete_key") %>
+              <%= submit_tag t("links.destroy"), data: { confirm: t("messages.are_you_sure") }, class: "btn btn-default btn-sm" %>
+            <% end %>
           </div>
         </td>
       </tr>
