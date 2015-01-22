@@ -7,7 +7,7 @@
 <%= @post.text %>
 
 投稿日時:
-<%= @post.created_at.strftime("%Y?%m/%d %H:%M") %>
+<%= @post.created_at.strftime("%Y/%m/%d %H:%M") %>
 
 返信内容:
 <%= @reply.text %>
@@ -15,7 +15,7 @@
 <%= @reply.name %>
 
 返信日時:
-<%= @reply.created_at.strftime("%Y?%m/%d %H:%M") %>
+<%= @reply.created_at.strftime("%Y/%m/%d %H:%M") %>
 
 この返信に対する回答は直接以下のメールアドレスにお願いいたします。
 <%= @reply.email %>
