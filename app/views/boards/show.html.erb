@@ -36,5 +36,5 @@
   <div class="float-right"><%= paginate @posts %></div>
   <div class="clear"></div>
 
-  <%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-default" %>
+  <% if @posts.size > 3 %><%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-default" %><% end %>
 </div>
