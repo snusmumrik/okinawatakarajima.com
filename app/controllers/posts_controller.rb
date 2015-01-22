@@ -35,6 +35,7 @@ class PostsController < ApplicationController
           @post.images.create(image: image)
         }
       end
+      PostMailer.new_post_email(@post).deliver_now
       session[:board_id] = nil
       respond_with(@post, location: board_path(@post.board))
     else

@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  resources :replies
+
   resources :posts
 
   resources :boards
@@ -16,6 +18,7 @@ Rails.application.routes.draw do
   #   get 'products/:id' => 'catalog#view'
   get '/:id' => 'contents#show'
   get '/posts/new/:board_id' => 'posts#new'
+  get '/replies/new/:post_id' => 'replies#new'
 
   # Example of named route that can be invoked with purchase_url(id: product.id)
   #   get 'products/:id/purchase' => 'catalog#purchase', as: :purchase

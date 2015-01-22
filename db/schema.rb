@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150122071411) do
+ActiveRecord::Schema.define(version: 20150122112850) do
 
   create_table "boards", force: :cascade do |t|
     t.string   "category",   limit: 255
@@ -49,6 +49,20 @@ ActiveRecord::Schema.define(version: 20150122071411) do
   add_index "posts", ["board_id"], name: "index_posts_on_board_id", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
+  create_table "replies", force: :cascade do |t|
+    t.integer  "user_id",    limit: 4
+    t.integer  "post_id",    limit: 4
+    t.string   "name",       limit: 255
+    t.string   "email",      limit: 255
+    t.string   "text",       limit: 255
+    t.datetime "deleted_at"
+    t.datetime "created_at",             null: false
+    t.datetime "updated_at",             null: false
+  end
+
+  add_index "replies", ["post_id"], name: "index_replies_on_post_id", using: :btree
+  add_index "replies", ["user_id"], name: "index_replies_on_user_id", using: :btree
+
   create_table "users", force: :cascade do |t|
     t.string   "name",                   limit: 255
     t.string   "email",                  limit: 255, default: "", null: false
@@ -74,4 +88,6 @@ ActiveRecord::Schema.define(version: 20150122071411) do
 
   add_foreign_key "posts", "boards"
   add_foreign_key "posts", "users"
+  add_foreign_key "replies", "posts"
+  add_foreign_key "replies", "users"
 end
