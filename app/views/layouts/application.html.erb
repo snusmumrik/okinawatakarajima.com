@@ -41,7 +41,7 @@
             <% if user_signed_in? %>
               <li><%= link_to t("links.user.sign_out"), destroy_user_session_path, :method => :delete, data: { confirm: t("messages.sign_out") } %></li>
             <% else %>
-              <li><%= link_to t("links.user.sign_in"), new_user_session_path %></li>
+              <li><%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>'.html_safe + t("links.user.sign_in"), new_user_session_path %></li>
             <% end %>
           </ul>
         </div>
