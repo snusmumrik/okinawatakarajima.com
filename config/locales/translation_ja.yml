@@ -78,7 +78,7 @@ ja:
     user:
       sign_in: ログイン
       sign_in_with: でログイン
-      sign_out: サインアウト
+      sign_out: ログアウト
       sign_up: 新規会員登録
       change_password: パスワードの変更
       reset_password: パスワードの再設定
