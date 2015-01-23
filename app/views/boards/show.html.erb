@@ -3,7 +3,7 @@
     <h2><%= @board.name %> <%= @board.category %></h2>
   </div>
 
-  <%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-default" %>
+  <p><%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-default" %></p>
 
   <div class="float-right"><%= paginate @posts, data: {no_turbolink: true} %></div>
 
