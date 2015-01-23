@@ -5,7 +5,7 @@
 
   <%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-default" %>
 
-  <div class="float-right"><%= paginate @posts %></div>
+  <div class="float-right"><%= paginate @posts, data: {no_turbolink: true} %></div>
 
   <div class="ad-top">
     <%= link_to image_tag("/ad01.gif"), "http://www.m-king.jp", target: "blank" %>
@@ -29,7 +29,7 @@
               <%= image_tag post.user.image.url(:thumb), height:40 %>
             <% end %>
             <%= post.name %>
-            <%= link_to '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>'.html_safe, "#{new_reply_path}/#{post.id}" %>
+            <%= link_to '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>'.html_safe, "#{new_reply_path}/#{post.id}", data: {no_turbolink: true} %>
             <span class="small"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span><br>
             <%= form_tag post, method: :delete do %>
               <%= text_field :delete_key, {url: "posts/#{post.id}"}, placeholder: t("activerecord.attributes.post.delete_key") %>
