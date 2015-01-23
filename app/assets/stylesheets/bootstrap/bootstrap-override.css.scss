@@ -10,7 +10,7 @@ body {
 }
 
 header {
-    background: url(/header.jpg) no-repeat -25px -430px;
+    background: url(/header.jpg) no-repeat -25px -355px;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -83,8 +83,7 @@ input[type="file"] {
 }
 
 .jumbotron {
-    width: 850px;
-    margin-bottom: 0 !important;
+    width: 800px;
     padding: 20px;
     margin: 0 auto;
     color: inherit;
