@@ -2,6 +2,10 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.boards td {
+    padding-left: 5% !important;
+}
+
 .caution {
     margin-top: 30px;
     font-size: 0.8em;
