@@ -8,44 +8,47 @@
   <div class="float-right"><%= paginate @posts, data: {no_turbolink: true} %></div>
 
   <div class="clear ad-top">
-    <%= link_to image_tag("/ad01.gif"), "http://www.m-king.jp", target: "blank" %>
+    <%#= 広告配信モデルの構築、配信アルゴリズムを作成 %>
+    <% if @board.name.index("バイク") %>
+      <%= link_to image_tag("/ad/ad_01.jpg"), "http://nishimuramotors.com", alt: "ニシムラモータース", target: "blank" %>
+    <% else %>
+      <%= link_to image_tag("/ad/ad_02.jpg"), "http://www.m-king.jp", alt: "マーケット王", target: "blank" %>
+    <% end %>
   </div>
 
-  <!-- <div class="table-responsive"> -->
-    <table class="table table-striped table-bordered">
-      <% @posts.each do |post| %>
-        <tr>
-          <td><%= post.title %></td>
-        </tr>
-        <tr>
-          <td>
-            <div>
-              <p><%= simple_format(post.text) %></p>
-              <% if post.images %>
-                <% post.images.each do |image| %>
-                  <%= link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium) %>
-                <% end %>
+  <table class="table table-striped table-bordered">
+    <% @posts.each do |post| %>
+      <tr>
+        <td><%= post.title %></td>
+      </tr>
+      <tr>
+        <td>
+          <div>
+            <p><%= simple_format(post.text) %></p>
+            <% if post.images %>
+              <% post.images.each do |image| %>
+                <%= link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium) %>
               <% end %>
-            </div>
-            <div class="right">
-              <div class="user-info">
-                <% if post.user && post.user.image %>
-                  <%= image_tag post.user.image.url(:thumb), height:40 %>
-                <% end %>
-                <%= post.name %>
-                <%= link_to '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>'.html_safe, "#{new_reply_path}/#{post.id}", data: {no_turbolink: true} %>
-                <span class="small"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
-              </div>
-              <%= form_tag post, method: :delete do %>
-                <%= text_field :delete_key, {url: "posts/#{post.id}"}, placeholder: t("activerecord.attributes.post.delete_key") %>
-                <%= submit_tag t("links.destroy"), data: { confirm: t("messages.are_you_sure") }, class: "btn btn-default btn-sm" %>
+            <% end %>
+          </div>
+          <div class="right">
+            <div class="user-info">
+              <% if post.user && post.user.image %>
+                <%= image_tag post.user.image.url(:thumb), height:40 %>
               <% end %>
+              <%= post.name %>
+              <%= link_to '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>'.html_safe, "#{new_reply_path}/#{post.id}", data: {no_turbolink: true} %>
+              <span class="small"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
             </div>
-          </td>
-        </tr>
-      <% end %>
-    </table>
-  <!-- </div> -->
+            <%= form_tag post, method: :delete do %>
+              <%= text_field :delete_key, {url: "posts/#{post.id}"}, placeholder: t("activerecord.attributes.post.delete_key") %>
+              <%= submit_tag t("links.destroy"), data: { confirm: t("messages.are_you_sure") }, class: "btn btn-default btn-sm" %>
+            <% end %>
+          </div>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 
   <div class="float-right"><%= paginate @posts %></div>
   <div class="clear"></div>
