@@ -1,177 +1,179 @@
-<div class="center">
-  <h2>業者投稿可能！</h2>
-  <p>
-    業者の方はログインより会員登録して投稿してください。<br>
-    一般投稿は登録なしで手軽に投稿できます。
-  </p>
-</div>
+<div class="narrow">
+  <div class="center">
+    <h2>業者投稿可能！</h2>
+    <p>
+      業者の方はログインより会員登録して投稿してください。<br>
+      一般投稿は登録なしで手軽に投稿できます。
+    </p>
+  </div>
 
-<table class="table table-striped boards">
-  <tr>
-    <th>売ります</th>
-    <th>買います</th>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 ベビー用品", "boards/#{@board_hash['売ります ベビー用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 ベビー用品", "boards/#{@board_hash['買います ベビー用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 子供用品", "boards/#{@board_hash['売ります 子供用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 子供用品", "boards/#{@board_hash['買います 子供用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 靴", "boards/#{@board_hash['売ります 靴']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 靴", "boards/#{@board_hash['買います 靴']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 アクセサリー", "boards/#{@board_hash['売ります アクセサリー']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 アクセサリー", "boards/#{@board_hash['買います アクセサリー']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 時計", "boards/#{@board_hash['売ります 時計']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 時計", "boards/#{@board_hash['買います 時計']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 衣類", "boards/#{@board_hash['売ります 衣類']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 衣類", "boards/#{@board_hash['買います 衣類']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 帽子・キャップ", "boards/#{@board_hash['売ります 帽子・キャップ']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 帽子・キャップ", "boards/#{@board_hash['買います 帽子・キャップ']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 カバン・バッグ", "boards/#{@board_hash['売ります カバン・バッグ']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 カバン・バッグ", "boards/#{@board_hash['買います カバン・バッグ']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 本・雑誌", "boards/#{@board_hash['売ります 本・雑誌']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 本・雑誌", "boards/#{@board_hash['買います 本・雑誌']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 音楽・機材・楽器", "boards/#{@board_hash['売ります 音楽・機材・楽器']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 音楽・機材・楽器", "boards/#{@board_hash['買います 音楽・機材・楽器']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 ゲーム／本体・ソフト/玩具", "boards/#{@board_hash['売ります ゲーム／本体・ソフト/玩具']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 ゲーム／本体・ソフト/玩具", "boards/#{@board_hash['買います ゲーム／本体・ソフト/玩具']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 フィギュア", "boards/#{@board_hash['売ります フィギュア']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 フィギュア", "boards/#{@board_hash['買います フィギュア']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 ホビー・コレクション", "boards/#{@board_hash['売ります ホビー・コレクション']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 ホビー・コレクション", "boards/#{@board_hash['買います ホビー・コレクション']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 電化製品", "boards/#{@board_hash['売ります 電化製品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 電化製品", "boards/#{@board_hash['買います 電化製品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 カメラ", "boards/#{@board_hash['売ります カメラ']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 カメラ", "boards/#{@board_hash['買います カメラ']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 パソコン／本体・周辺機器・ソフト", "boards/#{@board_hash['売ります パソコン／本体・周辺機器・ソフト']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 パソコン／本体・周辺機器・ソフト", "boards/#{@board_hash['買います パソコン／本体・周辺機器・ソフト']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 携帯電話", "boards/#{@board_hash['売ります 携帯電話']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 携帯電話", "boards/#{@board_hash['買います 携帯電話']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 食器・台所用品", "boards/#{@board_hash['売ります 食器・台所用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 食器・台所用品", "boards/#{@board_hash['買います 食器・台所用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 飲料・食品", "boards/#{@board_hash['売ります 飲料・食品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 飲料・食品", "boards/#{@board_hash['買います 飲料・食品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 美容・健康・ダイエット", "boards/#{@board_hash['売ります 美容・健康・ダイエット']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 美容・健康・ダイエット", "boards/#{@board_hash['買います 美容・健康・ダイエット']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 介護用品", "boards/#{@board_hash['売ります 介護用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 介護用品", "boards/#{@board_hash['買います 介護用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 スポーツ用品", "boards/#{@board_hash['売ります スポーツ用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 スポーツ用品", "boards/#{@board_hash['買います スポーツ用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 ゴルフ用品", "boards/#{@board_hash['売ります ゴルフ用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 ゴルフ用品", "boards/#{@board_hash['買います ゴルフ用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 バイク／車体", "boards/#{@board_hash['売ります バイク／車体']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 バイク／車体", "boards/#{@board_hash['買います バイク／車体']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 バイク／パーツ", "boards/#{@board_hash['売ります バイク／パーツ']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 バイク／パーツ", "boards/#{@board_hash['買います バイク／パーツ']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 車／車両", "boards/#{@board_hash['売ります 車／車両']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 車／車両", "boards/#{@board_hash['買います 車／車両']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 車／パーツ", "boards/#{@board_hash['売ります 車／パーツ']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 車／パーツ", "boards/#{@board_hash['買います 車／パーツ']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 自転車", "boards/#{@board_hash['売ります 自転車']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 自転車", "boards/#{@board_hash['買います 自転車']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 船舶・ボート・マリン用品", "boards/#{@board_hash['売ります 船舶・ボート・マリン用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 船舶・ボート・マリン用品", "boards/#{@board_hash['買います 船舶・ボート・マリン用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 キャンプ・アウトドア", "boards/#{@board_hash['売ります キャンプ・アウトドア']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 キャンプ・アウトドア", "boards/#{@board_hash['買います キャンプ・アウトドア']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 魚類・虫類・ペット用品", "boards/#{@board_hash['売ります 魚類・虫類・ペット用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 魚類・虫類・ペット用品", "boards/#{@board_hash['買います 魚類・虫類・ペット用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 釣具", "boards/#{@board_hash['売ります 釣具']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 釣具", "boards/#{@board_hash['買います 釣具']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 園芸", "boards/#{@board_hash['売ります 園芸']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 園芸", "boards/#{@board_hash['買います 園芸']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 チケット・金券", "boards/#{@board_hash['売ります チケット・金券']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 チケット・金券", "boards/#{@board_hash['買います チケット・金券']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 店舗・業務用・オフィス用品", "boards/#{@board_hash['売ります 店舗・業務用・オフィス用品']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 店舗・業務用・オフィス用品", "boards/#{@board_hash['買います 店舗・業務用・オフィス用品']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 工具・中古機器", "boards/#{@board_hash['売ります 工具・中古機器']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 工具・中古機器", "boards/#{@board_hash['買います 工具・中古機器']}", data: {no_turbolink: true} %></td>
-  </tr>
-  <tr>
-    <td><%= link_to "【売】 建築資材", "boards/#{@board_hash['売ります 建築資材']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "【買】 建築資材", "boards/#{@board_hash['買います 建築資材']}", data: {no_turbolink: true} %></td>
-  </tr>
-</table>
+  <table class="table table-striped boards">
+    <tr>
+      <th>売ります</th>
+      <th>買います</th>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 ベビー用品", "boards/#{@board_hash['売ります ベビー用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 ベビー用品", "boards/#{@board_hash['買います ベビー用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 子供用品", "boards/#{@board_hash['売ります 子供用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 子供用品", "boards/#{@board_hash['買います 子供用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 靴", "boards/#{@board_hash['売ります 靴']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 靴", "boards/#{@board_hash['買います 靴']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 アクセサリー", "boards/#{@board_hash['売ります アクセサリー']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 アクセサリー", "boards/#{@board_hash['買います アクセサリー']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 時計", "boards/#{@board_hash['売ります 時計']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 時計", "boards/#{@board_hash['買います 時計']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 衣類", "boards/#{@board_hash['売ります 衣類']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 衣類", "boards/#{@board_hash['買います 衣類']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 帽子・キャップ", "boards/#{@board_hash['売ります 帽子・キャップ']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 帽子・キャップ", "boards/#{@board_hash['買います 帽子・キャップ']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 カバン・バッグ", "boards/#{@board_hash['売ります カバン・バッグ']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 カバン・バッグ", "boards/#{@board_hash['買います カバン・バッグ']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 本・雑誌", "boards/#{@board_hash['売ります 本・雑誌']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 本・雑誌", "boards/#{@board_hash['買います 本・雑誌']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 音楽・機材・楽器", "boards/#{@board_hash['売ります 音楽・機材・楽器']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 音楽・機材・楽器", "boards/#{@board_hash['買います 音楽・機材・楽器']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 ゲーム／本体・ソフト/玩具", "boards/#{@board_hash['売ります ゲーム／本体・ソフト/玩具']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 ゲーム／本体・ソフト/玩具", "boards/#{@board_hash['買います ゲーム／本体・ソフト/玩具']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 フィギュア", "boards/#{@board_hash['売ります フィギュア']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 フィギュア", "boards/#{@board_hash['買います フィギュア']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 ホビー・コレクション", "boards/#{@board_hash['売ります ホビー・コレクション']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 ホビー・コレクション", "boards/#{@board_hash['買います ホビー・コレクション']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 電化製品", "boards/#{@board_hash['売ります 電化製品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 電化製品", "boards/#{@board_hash['買います 電化製品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 カメラ", "boards/#{@board_hash['売ります カメラ']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 カメラ", "boards/#{@board_hash['買います カメラ']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 パソコン／本体・周辺機器・ソフト", "boards/#{@board_hash['売ります パソコン／本体・周辺機器・ソフト']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 パソコン／本体・周辺機器・ソフト", "boards/#{@board_hash['買います パソコン／本体・周辺機器・ソフト']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 携帯電話", "boards/#{@board_hash['売ります 携帯電話']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 携帯電話", "boards/#{@board_hash['買います 携帯電話']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 食器・台所用品", "boards/#{@board_hash['売ります 食器・台所用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 食器・台所用品", "boards/#{@board_hash['買います 食器・台所用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 飲料・食品", "boards/#{@board_hash['売ります 飲料・食品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 飲料・食品", "boards/#{@board_hash['買います 飲料・食品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 美容・健康・ダイエット", "boards/#{@board_hash['売ります 美容・健康・ダイエット']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 美容・健康・ダイエット", "boards/#{@board_hash['買います 美容・健康・ダイエット']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 介護用品", "boards/#{@board_hash['売ります 介護用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 介護用品", "boards/#{@board_hash['買います 介護用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 スポーツ用品", "boards/#{@board_hash['売ります スポーツ用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 スポーツ用品", "boards/#{@board_hash['買います スポーツ用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 ゴルフ用品", "boards/#{@board_hash['売ります ゴルフ用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 ゴルフ用品", "boards/#{@board_hash['買います ゴルフ用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 バイク／車体", "boards/#{@board_hash['売ります バイク／車体']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 バイク／車体", "boards/#{@board_hash['買います バイク／車体']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 バイク／パーツ", "boards/#{@board_hash['売ります バイク／パーツ']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 バイク／パーツ", "boards/#{@board_hash['買います バイク／パーツ']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 車／車両", "boards/#{@board_hash['売ります 車／車両']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 車／車両", "boards/#{@board_hash['買います 車／車両']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 車／パーツ", "boards/#{@board_hash['売ります 車／パーツ']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 車／パーツ", "boards/#{@board_hash['買います 車／パーツ']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 自転車", "boards/#{@board_hash['売ります 自転車']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 自転車", "boards/#{@board_hash['買います 自転車']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 船舶・ボート・マリン用品", "boards/#{@board_hash['売ります 船舶・ボート・マリン用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 船舶・ボート・マリン用品", "boards/#{@board_hash['買います 船舶・ボート・マリン用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 キャンプ・アウトドア", "boards/#{@board_hash['売ります キャンプ・アウトドア']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 キャンプ・アウトドア", "boards/#{@board_hash['買います キャンプ・アウトドア']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 魚類・虫類・ペット用品", "boards/#{@board_hash['売ります 魚類・虫類・ペット用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 魚類・虫類・ペット用品", "boards/#{@board_hash['買います 魚類・虫類・ペット用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 釣具", "boards/#{@board_hash['売ります 釣具']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 釣具", "boards/#{@board_hash['買います 釣具']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 園芸", "boards/#{@board_hash['売ります 園芸']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 園芸", "boards/#{@board_hash['買います 園芸']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 チケット・金券", "boards/#{@board_hash['売ります チケット・金券']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 チケット・金券", "boards/#{@board_hash['買います チケット・金券']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 店舗・業務用・オフィス用品", "boards/#{@board_hash['売ります 店舗・業務用・オフィス用品']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 店舗・業務用・オフィス用品", "boards/#{@board_hash['買います 店舗・業務用・オフィス用品']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 工具・中古機器", "boards/#{@board_hash['売ります 工具・中古機器']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 工具・中古機器", "boards/#{@board_hash['買います 工具・中古機器']}", data: {no_turbolink: true} %></td>
+    </tr>
+    <tr>
+      <td><%= link_to "【売】 建築資材", "boards/#{@board_hash['売ります 建築資材']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "【買】 建築資材", "boards/#{@board_hash['買います 建築資材']}", data: {no_turbolink: true} %></td>
+    </tr>
+  </table>
 
-<table class="table table-striped">
-  <tr>
-    <th>宣伝・告知</th>
-    <th>回収・買取</th>
-  </tr>
-  <tr>
-    <td><%= link_to "仕事を依頼したい・仕事引き受けます", "boards/#{@board_hash[' 仕事を依頼したい・仕事引き受けます']}", data: {no_turbolink: true} %></td>
-    <td><%= link_to "引き取ります・買い取ります", "boards/#{@board_hash[' 引き取ります・買い取ります']}", data: {no_turbolink: true} %></td>
-  </tr>
-</table>
+  <table class="table table-striped">
+    <tr>
+      <th>宣伝・告知</th>
+      <th>回収・買取</th>
+    </tr>
+    <tr>
+      <td><%= link_to "仕事を依頼したい・仕事引き受けます", "boards/#{@board_hash[' 仕事を依頼したい・仕事引き受けます']}", data: {no_turbolink: true} %></td>
+      <td><%= link_to "引き取ります・買い取ります", "boards/#{@board_hash[' 引き取ります・買い取ります']}", data: {no_turbolink: true} %></td>
+    </tr>
+  </table>
 
-<div class="center caution">
-  本サービスのご利用は、利用者様の責任でお願いいたします。<br>
+  <div class="center caution">
+    本サービスのご利用は、利用者様の責任でお願いいたします。<br>
+  </div>
 </div>
