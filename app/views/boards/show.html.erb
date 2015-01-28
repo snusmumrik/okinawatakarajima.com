@@ -10,9 +10,9 @@
   <div class="clear ad-top">
     <%#= 広告配信モデルの構築、配信アルゴリズムを作成 %>
     <% if @board.name.index("バイク") %>
-      <%= link_to image_tag("/ad/ad_01.jpg"), "http://nishimuramotors.com", alt: "ニシムラモータース", target: "blank" %>
+      <%= link_to image_tag("/ad/ad_01.jpg", alt: "ニシムラモータース"), "http://nishimuramotors.com", target: "blank" %>
     <% else %>
-      <%= link_to image_tag("/ad/ad_02.jpg"), "http://www.m-king.jp", alt: "マーケット王", target: "blank" %>
+      <%= link_to image_tag("/ad/ad_02.jpg", alt: "マーケット王"), "http://www.m-king.jp", target: "blank" %>
     <% end %>
   </div>
 
