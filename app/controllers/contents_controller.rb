@@ -1,14 +1,17 @@
+# -*- coding: utf-8 -*-
 class ContentsController < ApplicationController
   before_action :set_boards
 
   def show
     if params[:id] && File.exist?(path = "#{Rails.root.to_s}/app/views/contents/#{params[:id]}.html.erb")
-      # case params[:id]
-      # when "index"
-      #   @description = "" + @@description
-      #   @keywords = @@keywords
-      #   @title = @@title
-      # end
+      case params[:id]
+      when "rules"
+        @description = "ルール・免責事項"
+        @keywords = "ルール・免責事項"
+      when "faq"
+        @description = "よくある質問"
+        @keywords = "よくある質問"
+      end
       render :file => path, :layout => true
     else
       render :text => "Page does not exists.", :status => 404
