@@ -2,6 +2,10 @@
 class ContentsController < ApplicationController
   before_action :set_boards
 
+  def index
+    @posts = Post.order("created_at DESC").limit(5)
+  end
+
   def show
     if params[:id] && File.exist?(path = "#{Rails.root.to_s}/app/views/contents/#{params[:id]}.html.erb")
       case params[:id]

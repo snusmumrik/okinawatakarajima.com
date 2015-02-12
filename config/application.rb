@@ -22,5 +22,7 @@ module OkinawatakarajimaCom
     config.i18n.default_locale = :ja
 
     config.assets.precompile += %w( *.eot *.svg *.ttf *.woff *.otf)
+
+    config.active_record.raise_in_transactional_callbacks = true
   end
 end
