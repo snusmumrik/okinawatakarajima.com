@@ -9,9 +9,12 @@ class PostsController < ApplicationController
   #   respond_with(@posts)
   # end
 
-  # def show
-  #   respond_with(@post)
-  # end
+  def show
+    @description = "#{@post.board.name} #{@post.title}"
+    @keywords = @post.board.name
+
+    respond_with(@post)
+  end
 
   def new
     @post = Post.new
