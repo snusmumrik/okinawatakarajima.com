@@ -19,8 +19,8 @@
       <tr>
         <td>
           <span class="small">
-            <%= link_to "#{post.board.name} #{post.board.category}", board_path(post.board) %></span><br>
-          <%= link_to post.title, post %><br>
+            <%= link_to "#{post.board.name} #{post.board.category}", board_path(post.board), data: {no_turbolink: true} %></span><br>
+          <%= link_to post.title, post, data: {no_turbolink: true} %><br>
           <div class="right">
             <span class="small"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
           </div>
