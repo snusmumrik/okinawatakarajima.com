@@ -32,7 +32,15 @@ class PostsController < ApplicationController
     @post = Post.new(post_params)
     @post.user = current_user if current_user
     @board = Board.find(session[:board_id])
-    if @post.save
+
+    body = @post.text
+    jp_length = body.gsub(/[a-zA-Z0-9]/, "").to_s.split(//).size
+    body_length = body.split(//).size
+
+    if jp_length < body_length * 0.5
+      flash[:alert] = "スパム投稿防止の為、受け付けできません。"
+      redirect_to root_path
+    elsif @post.save
       if params[:post][:images]
         params[:post][:images].each_with_index { |image, i|
           return if i > 2

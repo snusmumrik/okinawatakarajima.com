@@ -52,8 +52,8 @@ group :development do
   gem 'spring'
   gem 'parallel_tests'
   gem 'factory_girl_rails'
-  gem 'guard-rspec'
-  gem 'guard-spring'
+  # gem 'guard-rspec'
+  # gem 'guard-spring'
 end
 
 gem 'devise'
