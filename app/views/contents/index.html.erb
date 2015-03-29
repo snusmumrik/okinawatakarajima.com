@@ -22,6 +22,11 @@
           <span class="small">
             <%= link_to "#{post.board.name} #{post.board.category}", board_path(post.board), data: {no_turbolink: true} %></span><br>
           <%= link_to post.title, post, data: {no_turbolink: true} %><br>
+          <% if post.images %>
+            <% post.images.each do |image| %>
+              <%= link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium) %>
+            <% end %>
+          <% end %>
           <div class="right">
             <span class="small"><%= post.created_at.strftime("%Y/%m/%d %H:%M") %></span>
           </div>
