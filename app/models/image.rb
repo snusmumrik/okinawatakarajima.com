@@ -2,7 +2,7 @@ class Image < ActiveRecord::Base
   belongs_to :imageable, polymorphic: true
 
   has_attached_file :image,
-  styles: { medium: "300x300>", thumb: "100x100#" },
+  styles: { medium: "600x600>", thumb: "100x100#" },
   url: "/:attachment/:class/:id/:style/:basename.:extension",
   path: ":rails_root/public/:attachment/:class/:id/:style/:basename.:extension",
   default_url: "/:attachment/:class/missing/:style/missing.png",
