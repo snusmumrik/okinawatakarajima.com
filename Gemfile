@@ -56,6 +56,10 @@ group :development do
   # gem 'guard-spring'
 end
 
+group :production do
+  gem 'rails_12factor'
+end
+
 gem 'devise'
 gem 'i18n_generators'
 gem 'paranoia'
