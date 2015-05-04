@@ -3,18 +3,17 @@
     <h2><%= @board.name %> <%= @board.category %></h2>
   </div>
 
-  <p><%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-default" %></p>
+  <p><%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-primary btn-lg" %></p>
 
   <div class="float-right"><%= paginate @posts, data: {no_turbolink: true} %></div>
 
-  <div class="clear ad-top">
-    <%#= 広告配信モデルの構築、配信アルゴリズムを作成 %>
-    <% if @board.name.index("バイク") %>
-      <%= link_to image_tag("/ad/ad_01.jpg", alt: "ニシムラモータース"), "http://nishimuramotors.com", target: "blank" %>
-    <% else %>
-      <%= link_to image_tag("/ad/ad_02.jpg", alt: "マーケット王"), "http://www.m-king.jp", target: "blank" %>
-    <% end %>
-  </div>
+  <!-- <div class="clear ad-top">
+   !--   <% if @board.name.index("バイク") %>
+   !--     <%= link_to image_tag("/ad/ad_01.jpg", alt: "ニシムラモータース"), "http://nishimuramotors.com", target: "blank" %>
+   !--   <% else %>
+   !--     <%= link_to image_tag("/ad/ad_02.jpg", alt: "マーケット王"), "http://www.m-king.jp", target: "blank" %>
+   !--   <% end %>
+   !-- </div> -->
 
   <table class="table table-striped table-bordered">
     <% @posts.each do |post| %>
@@ -53,5 +52,5 @@
   <div class="float-right"><%= paginate @posts %></div>
   <div class="clear"></div>
 
-  <% if @posts.size > 3 %><%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-default" %><% end %>
+  <% if @posts.size > 3 %><%= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-primary btn-lg" %><% end %>
 </div>
