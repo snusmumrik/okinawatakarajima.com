@@ -2,16 +2,36 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.boards td {
-    padding-left: 5% !important;
-}
-
 .caution {
-    margin-top: 30px;
-    font-size: 0.8em;
+    padding-top: 10px;
+    font-size: 1.2em;
+    color: #FFFFFF;
+    background-color: #FF0000;
+    height: 60px;
+    vertical-align: middle !important;
 }
 
 .answer {
     padding-top: 50px !important;
     padding-bottom: 20px !important;
+}
+
+.new-arrival {
+    width: 50%;
+    float: left;
+
+    div {
+        margin-top: 30px;
+        margin-bottom: 10px;
+    }
+}
+
+.boards {
+    width: 48%;
+    float: right;
+    margin-left: 2%;
+
+    td {
+        padding-left: 5% !important;
+    }
 }

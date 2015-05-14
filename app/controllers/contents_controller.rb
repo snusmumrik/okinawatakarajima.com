@@ -5,7 +5,7 @@ class ContentsController < ApplicationController
   def index
     @description = ""
     @keywords = "工具,電化製品,バイク,車,チケット,子供服,時計,カメラ"
-    @posts = Post.order("created_at DESC").limit(5)
+    @posts = Post.order("created_at DESC").limit(7)
   end
 
   def show

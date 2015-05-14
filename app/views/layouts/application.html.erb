@@ -15,41 +15,6 @@
     <%= csrf_meta_tags %>
   </head>
   <body>
-
-    <div class="navbar navbar-default navbar-fixed-top">
-      <div class="container">
-        <div class="navbar-header">
-          <a href="/" data-no-turbolink="true" class="navbar-brand">沖縄宝島</a>
-          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-        </div>
-        <div class="navbar-collapse collapse" id="navbar-main">
-          <ul class="nav navbar-nav">
-            <li>
-              <a href="/" data-no-turbolink="true">沖縄の個人売買総合サイト</a>
-            </li>
-          </ul>
-
-          <ul class="nav navbar-nav navbar-right">
-            <li>
-              <a href="/rules"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>ルール・免責事項</a>
-            </li>
-            <li>
-              <a href="/faq"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>よくある質問</a>
-            </li>
-            <% if user_signed_in? %>
-              <li><%= link_to '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>'.html_safe + t("links.user.sign_out"), destroy_user_session_path, :method => :delete, data: { confirm: t("messages.sign_out") } %></li>
-            <% else %>
-              <li><%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>'.html_safe + t("links.user.sign_in"), new_user_session_path %></li>
-            <% end %>
-          </ul>
-        </div>
-      </div>
-    </div>
-
     <div>
       <% if notice %>
         <div class="alert alert-success">
@@ -64,21 +29,53 @@
     </div>
 
     <div class="jumbotron">
-      <header class="center">
-        <h1><a href="/" data-no-turbolink="true"><img src="/logo.png" alt="沖縄宝島"></a></h1>
-      </header>
+      <header class="center"><%= link_to image_tag("/header.jpg", alt: "沖縄宝島"), root_path %></header>
+
+      <div class="navbar navbar-default">
+        <div class="navbar-header">
+          <button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#navbar-main">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+        </div>
+        <div class="navbar-collapse collapse" id="navbar-main">
+          <ul class="nav navbar-nav navbar-left">
+            <li>
+              <a href="/rules"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>ルール・免責事項</a>
+            </li>
+            <li>
+              <a href="/faq"><span class="glyphicon glyphicon-question-sign" aria-hidden="true"></span>よくある質問</a>
+            </li>
+            <% if user_signed_in? %>
+              <li><%= link_to '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>'.html_safe + t("links.user.sign_out"), destroy_user_session_path, :method => :delete, data: { confirm: t("messages.sign_out") } %></li>
+            <% else %>
+              <li><%= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>'.html_safe + t("links.user.sign_in"), new_user_session_path %></li>
+            <% end %>
+          </ul>
+        </div>
+      </div>
 
       <div class="main-content">
         <%= yield %>
       </div>
     </div>
 
+    <div class="clear"></div>
+
     <footer>
-      <div>&copy;<%= Date.today.year %>
-        <a href="/" data-no-turbolink="true">沖縄宝島 okinawatakarajima.com</a>
+      <div class="center caution">
+        本サービスのご利用は、<br>
+        利用者様の責任でお願いいたします。
       </div>
-      <div class="links">
-        <a href="http://nusuru.com" target="blank">沖縄の盗難車情報サイト ヌスルー情報局 nusuru.com</a>
+
+      <div class="copy-rights">&copy;<%= Date.today.year %>
+        <a href="/" data-no-turbolink="true">沖縄宝島 okinawatakarajima.com</a>　<a href="http://nusuru.com" target="blank">沖縄の盗難車情報サイト ヌスルー情報局 nusuru.com</a>
+        <p class="small">
+          <i>
+            Produced by <%= link_to "ニシムラモータース", "http://nishimuramotors.com", target: :blank %>
+          </i>
+        </p>
       </div>
     </footer>
 
