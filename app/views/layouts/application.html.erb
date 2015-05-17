@@ -29,7 +29,9 @@
     </div>
 
     <div class="jumbotron">
-      <header class="center"><%= link_to image_tag("/header.jpg", alt: "沖縄宝島"), root_path %></header>
+      <header class="center">
+        <%= link_to image_tag("/header.jpg", alt: "沖縄宝島"), root_path, data: { no_turbolink: true } %>
+      </header>
 
       <div class="navbar navbar-default">
         <div class="navbar-header">
