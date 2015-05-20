@@ -9,7 +9,7 @@
 
   <div class="container">
     <div class="row">
-      <div class="col-md-6">
+      <div class="new-arrival">
         <div class="float-left">
           <%= image_tag "/new_arrival.png", alt: "新着情報" %>
         </div>
@@ -19,8 +19,9 @@
             <tr>
               <td>
                 <span class="small">
-                  <%= link_to "#{post.board.name} #{post.board.category}", board_path(post.board), data: {no_turbolink: true} %></span><br>
-                <%= link_to post.title, post, data: {no_turbolink: true} %><br>
+                  <%= link_to "#{post.board.name} #{post.board.category}", board_path(post.board), data: {no_turbolink: true} %><br>
+                  <%= link_to post.title, post, data: {no_turbolink: true} %><br>
+                </span>
 
                 <% if post.images %>
                   <% post.images.each do |image| %>
@@ -35,7 +36,7 @@
           <% end %>
         </table>
       </div>
-      <div class="col-md-6">
+      <div class="boards">
         <table class="table">
           <tr>
             <th colspan="2" ><span class="red">売ります！買います！</span></th>
