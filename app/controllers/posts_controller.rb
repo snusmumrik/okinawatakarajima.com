@@ -34,7 +34,7 @@ class PostsController < ApplicationController
     @board = Board.find(session[:board_id])
 
     body = @post.text
-    jp_length = body.gsub(/[a-zA-Z0-9]/, "").to_s.split(//).size
+    jp_length = body.gsub(/[a-zA-Z0-9,.;:'"_\[\]<>\/= ]/, "").to_s.split(//).size
     body_length = body.split(//).size
 
     if jp_length < body_length * 0.5

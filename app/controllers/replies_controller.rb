@@ -29,12 +29,21 @@ class RepliesController < ApplicationController
     @reply.user == current_user if current_user
     @post = Post.find(session[:post_id])
 
-    if @reply.save
+    body = @reply.text
+    jp_length = body.gsub(/[a-zA-Z0-9,.;:'"_\[\]<>\/= ]/, "").to_s.split(//).size
+    raise jp_length.inspect
+    body_length = body.split(//).size
+
+    if jp_length < body_length * 0.2
+      flash[:alert] = "スパム投稿防止の為、受け付けできません。"
+      redirect_to root_path
+    elsif @reply.save
       ReplyMailer.new_reply_email(@reply).deliver_now
       ReplyMailer.reply_notification_email(@reply).deliver_now
 
       session[:post_id] = nil
-      respond_with(@post, location: board_path(@post.board), notice: "返信しました。")
+      flash[:notice] = "返信しました。ご利用ありがとうございました！"
+      respond_with(@post, location: board_path(@post.board))
     else
       respond_with(@reply)
     end
