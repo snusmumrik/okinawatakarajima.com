@@ -31,7 +31,6 @@ class RepliesController < ApplicationController
 
     body = @reply.text
     jp_length = body.gsub(/[a-zA-Z0-9,.;:'"_\[\]<>\/= ]/, "").to_s.split(//).size
-    raise jp_length.inspect
     body_length = body.split(//).size
 
     if jp_length < body_length * 0.2
