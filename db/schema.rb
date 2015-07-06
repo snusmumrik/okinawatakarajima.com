@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150127133341) do
+ActiveRecord::Schema.define(version: 20150705125012) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -55,6 +55,7 @@ ActiveRecord::Schema.define(version: 20150127133341) do
     t.text     "text",       limit: 65535
     t.string   "name",       limit: 255
     t.string   "email",      limit: 255
+    t.boolean  "sold",       limit: 1
     t.string   "delete_key", limit: 255
     t.datetime "deleted_at"
     t.datetime "created_at",               null: false

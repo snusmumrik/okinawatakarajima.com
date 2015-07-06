@@ -56,10 +56,13 @@ class PostsController < ApplicationController
     end
   end
 
-  # def update
-  #   @post.update(post_params)
-  #   respond_with(@post)
-  # end
+  def update
+    # @post.update(post_params)
+    @post.sold = true
+    @post.save
+    flash[:notice] = "返信を締め切りました。"
+    respond_with(@post)
+  end
 
   def destroy
     @board = @post.board
@@ -73,6 +76,6 @@ class PostsController < ApplicationController
     end
 
     def post_params
-      params.require(:post).permit(:board_id, :title, :text, :name, :email, :delete_key, :deleted_at, images_attributes: [:image])
+      params.require(:post).permit(:board_id, :title, :text, :name, :email, :sold, :delete_key, :deleted_at, images_attributes: [:image])
     end
 end

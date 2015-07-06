@@ -85,6 +85,9 @@ ja:
       forgot_password: パスワードをお忘れですか？
       resend_confirmation: 登録メールの再送
 
+    post:
+      sold: 締切
+
   messages:
     created: を登録しました。
     updated: を更新しました。
@@ -103,6 +106,9 @@ ja:
     offer:
       confirm: 見積を確定してよろしいですか？
       cancel: 見積をキャンセルしてよろしいですか？
+
+    post:
+      sold: 問い合わせを締め切りますか？
 
   views:
     index: 一覧

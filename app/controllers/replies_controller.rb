@@ -5,24 +5,30 @@ class RepliesController < ApplicationController
 
   respond_to :html
 
-  def index
-    @replies = Reply.all
-    respond_with(@replies)
-  end
+  # def index
+  #   @replies = Reply.all
+  #   respond_with(@replies)
+  # end
 
-  def show
-    respond_with(@reply)
-  end
+  # def show
+  #   respond_with(@reply)
+  # end
 
   def new
     @reply = Reply.new
     @post = Post.find(params[:post_id])
+
+    unless @post.sold.nil?
+      redirect_to @post
+      return
+    end
+
     session[:post_id] = @post.id
     respond_with(@reply)
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
   def create
     @reply = Reply.new(reply_params)
@@ -48,15 +54,15 @@ class RepliesController < ApplicationController
     end
   end
 
-  def update
-    @reply.update(reply_params)
-    respond_with(@reply)
-  end
+  # def update
+  #   @reply.update(reply_params)
+  #   respond_with(@reply)
+  # end
 
-  def destroy
-    @reply.destroy
-    respond_with(@reply)
-  end
+  # def destroy
+  #   @reply.destroy
+  #   respond_with(@reply)
+  # end
 
   private
   def set_reply
