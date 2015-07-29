@@ -30,6 +30,10 @@
     <%= f.text_field :email, value: current_user.try(:email), class: "form-control" %>
   </div>
   <div class="field">
+    <%= f.label :tel %><br>
+    <%= f.text_field :tel, value: current_user.try(:tel), class: "form-control" %>
+  </div>
+  <div class="field">
     <%= f.label :delete_key %><br>
     <span class="small">＊投稿を削除したいときの暗証キーとなります。</span>
     <%= f.text_field :delete_key, class: "form-control" %>

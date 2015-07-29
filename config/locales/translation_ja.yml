@@ -30,6 +30,7 @@ ja:
         email: メールアドレス
         images: 画像
         name: 名前
+        tel: 電話番号
         text: 本文
         title: 件名
         user: :activerecord.models.user  #g
@@ -61,6 +62,7 @@ ja:
         remember_me: パスワードを記憶
         reset_password_sent_at: reset_password_sent_at  #g
         reset_password_token: reset_password_token  #g
+        tel: 電話番号
 
   links:
     back: 戻る
