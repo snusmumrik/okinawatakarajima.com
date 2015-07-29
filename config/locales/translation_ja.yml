@@ -86,7 +86,7 @@ ja:
       resend_confirmation: 登録メールの再送
 
     post:
-      sold: 締切
+      sold: 掲載終了
 
   messages:
     created: を登録しました。
@@ -108,7 +108,7 @@ ja:
       cancel: 見積をキャンセルしてよろしいですか？
 
     post:
-      sold: 問い合わせを締め切りますか？
+      sold: 掲載を終了しますか？
 
   views:
     index: 一覧
