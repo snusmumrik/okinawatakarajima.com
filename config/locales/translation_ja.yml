@@ -88,7 +88,7 @@ ja:
       resend_confirmation: 登録メールの再送
 
     post:
-      sold: 掲載終了
+      sold: 受付終了
 
   messages:
     created: を登録しました。
