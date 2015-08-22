@@ -66,7 +66,12 @@ class PostsController < ApplicationController
 
   def destroy
     @board = @post.board
-    @post.destroy if params[:delete_key].to_a[0][1] == @post.delete_key
+    if @post.delete_key.blank? == false && params[:delete_key].to_a[0][1] == @post.delete_key
+      @post.destroy
+      flash[:notice] = "削除しました。"
+    else
+      flash[:alert] = "削除キーが未設定か間違っています。"
+    end
     respond_with(@post, location: board_path(@board))
   end
 
