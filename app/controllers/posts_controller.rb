@@ -68,16 +68,16 @@ class PostsController < ApplicationController
     @board = @post.board
     if @post.delete_key.blank? == false && params[:delete_key].to_a[0][1] == @post.delete_key
       @post.destroy
-      flash[:notice] = "削除しました。"
+      flash[:notice] = "掲載終了しました。"
     else
-      flash[:alert] = "削除キーが未設定か間違っています。"
+      flash[:alert] = "掲載終了キーが未設定か間違っています。"
     end
     respond_with(@post, location: board_path(@board))
   end
 
   private
     def set_post
-      @post = Post.find(params[:id])
+      @post = Post.with_deleted.find(params[:id])
     end
 
     def post_params

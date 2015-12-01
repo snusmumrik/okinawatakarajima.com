@@ -9,7 +9,7 @@ class BoardsController < ApplicationController
   # end
 
   def show
-    @posts = Post.where(["board_id = ?", @board.id]).order("created_at DESC").page(params[:page]).per(10)
+    @posts = Post.where(["board_id = ?", @board.id]).with_deleted.order("created_at DESC").page(params[:page]).per(10)
     @description = @board.name
     @keywords = @board.name
 

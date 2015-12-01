@@ -25,7 +25,7 @@ ja:
 
       post:
         board: :activerecord.models.board  #g
-        delete_key: 削除キー
+        delete_key: 販売終了キー
         deleted_at: deleted_at  #g
         email: メールアドレス
         images: 画像
@@ -70,6 +70,7 @@ ja:
     destroy: 削除
     download: 保存
     edit: 編集
+    finish: 掲載終了
     index: 一覧
     new: 新規
     show: 詳細
