@@ -77,6 +77,8 @@ GEM
       activesupport (>= 4.1.0)
     haml (4.0.6)
       tilt
+    heroku-deflater (0.6.2)
+      rack (>= 1.4.5)
     hike (1.2.3)
     http-cookie (1.0.2)
       domain_name (~> 0.5)
@@ -233,6 +235,7 @@ DEPENDENCIES
   devise
   factory_girl_rails
   haml
+  heroku-deflater
   i18n_generators
   jbuilder (~> 2.0)
   jquery-rails
@@ -251,4 +254,4 @@ DEPENDENCIES
   uglifier (>= 1.3.0)
 
 BUNDLED WITH
-   1.10.4
+   1.10.6
