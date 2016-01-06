@@ -56,10 +56,10 @@ group :development do
   # gem 'guard-spring'
 end
 
-group :production do
-  gem 'rails_12factor'
-  gem 'heroku-deflater'
-end
+# group :production do
+#   gem 'rails_12factor'
+#   gem 'heroku-deflater'
+# end
 
 gem 'devise'
 gem 'i18n_generators'
