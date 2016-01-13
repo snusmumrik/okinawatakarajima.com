@@ -35,9 +35,8 @@ class PostsController < ApplicationController
 
     body = @post.text
     jp_length = body.gsub(/[a-zA-Z0-9,.;:'"_\[\]<>\/= ]/, "").to_s.split(//).size
-    body_length = body.split(//).size
 
-    if jp_length < body_length * 0.5
+    if jp_length == 0
       flash[:alert] = "スパム投稿防止の為、受け付けできません。"
       redirect_to root_path
     elsif @post.save
