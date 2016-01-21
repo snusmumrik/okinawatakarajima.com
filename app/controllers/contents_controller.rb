@@ -9,7 +9,7 @@ class ContentsController < ApplicationController
   end
 
   def show
-    if params[:id] && File.exist?(path = "#{Rails.root.to_s}/app/views/contents/#{params[:id]}.html.erb")
+    if params[:id] && File.exist?(path = "#{Rails.root.to_s}/app/views/contents/#{params[:id]}.html.haml")
       case params[:id]
       when "rules"
         @description = "ルール・免責事項"

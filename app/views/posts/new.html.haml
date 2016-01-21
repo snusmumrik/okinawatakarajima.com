@@ -1,0 +1,8 @@
+.center
+  %h2
+    = @board.name
+    = @board.category
+    = t "links.new"
+    = t "activerecord.models.post"
+.narrow
+  = render 'form'

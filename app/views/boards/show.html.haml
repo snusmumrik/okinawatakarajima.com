@@ -1,0 +1,47 @@
+.narrow
+  .center
+    %h2
+      = @board.name
+      = @board.category
+  %p= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-danger btn-lg"
+  .float-right= paginate @posts, data: {no_turbolink: true}
+  /
+    <div class="clear ad-top">
+    \!--   <haml_silent> if @board.name.index(&quot;バイク&quot;) </haml_silent><haml_block>
+    \!--     <haml_loud> link_to image_tag(&quot;/ad/ad_01.jpg&quot;, alt: &quot;ニシムラモータース&quot;), &quot;http://nishimuramotors.com&quot;, target: &quot;blank&quot; </haml_loud>
+    \!--   </haml_block><haml_silent> else </haml_silent><haml_block>
+    \!--     <haml_loud> link_to image_tag(&quot;/ad/ad_02.jpg&quot;, alt: &quot;マーケット王&quot;), &quot;http://www.m-king.jp&quot;, target: &quot;blank&quot; </haml_loud>
+    \!--   </haml_block>
+    \!-- </div>
+  %table.table.table-striped.table-bordered
+    - @posts.each do |post|
+      %tr.subject
+        %td= link_to post.title, post, data: {no_turbolink: true}
+      %tr
+        %td
+          %div
+            %p= simple_format(post.text)
+            - if post.images
+              - post.images.each do |image|
+                = link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium)
+          .right
+            .user-info
+              - if post.user && post.user.image
+                = link_to image_tag(post.user.image.url(:thumb), height:60), post.user.image.url(:medium), "data-lightbox" => post.user.image.url(:medium)
+              = post.name
+              = post.tel
+              - if post.sold.nil? && post.deleted_at.blank?
+                = link_to '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>'.html_safe, "#{new_reply_path}/#{post.id}", data: {no_turbolink: true}
+              %span.small= post.created_at.strftime("%Y/%m/%d %H:%M")
+              - if user_signed_in? && post.user == current_user && post.sold.nil?
+                = link_to t("links.post.sold"), post, method: :put, data: { confirm: t("messages.post.sold") }, class: "btn btn-info btn-sm"
+            - if post.deleted_at.blank?
+              = form_tag post, method: :delete do
+                = text_field :delete_key, {url: "posts/#{post.id}"}, placeholder: t("activerecord.attributes.post.delete_key")
+                = submit_tag t("links.destroy"), data: { confirm: t("messages.are_you_sure") }, class: "btn btn-default btn-sm"
+            - else
+              = t "links.post.sold"
+  .float-right= paginate @posts
+  .clear
+  - if @posts.size > 3
+    = link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-danger btn-lg"

@@ -1,0 +1,68 @@
+.form-signin
+  %h2
+    = t "activerecord.models.user"
+    = t "views.edit"
+  = form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f|
+    = devise_error_messages!
+    %div
+      = f.label :name
+      %br/
+      = f.text_field :name, :class => "form-control"
+    %div
+      = f.label :tel
+      %br/
+      = f.text_field :tel, :class => "form-control"
+    %div
+      = f.label :email
+      %br/
+      = f.email_field :email, :class => "form-control"
+    - if devise_mapping.confirmable? && resource.pending_reconfirmation?
+      %div
+        Currently waiting confirmation for: #{resource.unconfirmed_email}
+    %div
+      = f.label :password
+      %i
+        (#{t "views.user.leave_blank_if_you_don't_want_to_change_it"})
+      %br/
+      = f.password_field :password, autocomplete: "off", :class => "form-control"
+    %div
+      = f.label :password_confirmation
+      %br/
+      = f.password_field :password_confirmation, autocomplete: "off", :class => "form-control"
+    %div
+      = f.label :current_password
+      %i
+        (#{t "views.user.we_need_your_current_password_to_confirm_your_changes"})
+      %br/
+      = f.password_field :current_password, autocomplete: "off", :class => "form-control"
+    %div
+      = f.label :image
+      %br/
+      - if @user.image
+        = image_tag @user.image(:thumb)
+        %br/
+      = f.file_field :image
+    .actions
+      = f.submit t("links.update"), :class => "btn btn-default"
+      = link_to t("links.back"), :back, :class => "btn btn-default"
+  %hr/
+  .option
+    %h2= label_tag t("views.user.options")
+    = label_tag :ad_free, t("views.option.ad_free")
+    %br/
+    - if current_user.add_ons.ad_free.first
+      %a{:href => "https://www.paypal.com/cgi-bin/webscr?cmd=_subscr-find&alias=X8FKWSFG5DHM4"}
+        %img{:border => "0", :src => "https://www.paypalobjects.com/ja_JP/JP/i/btn/btn_unsubscribe_LG.gif"}/
+    - else
+      %form{:action => "https://www.paypal.com/cgi-bin/webscr", :method => "post", :target => "_top"}
+        %input{:name => "cmd", :type => "hidden", :value => "_s-xclick"}/
+        %input{:name => "hosted_button_id", :type => "hidden", :value => "RFEWNJHVPJEJL"}/
+        %input{:alt => "PayPal - オンラインでより安全・簡単にお支払い", :border => "0", :name => "submit", :src => "https://www.paypalobjects.com/ja_JP/JP/i/btn/btn_subscribeCC_LG.gif", :type => "image"}/
+        %img{:alt => "", :border => "0", :height => "1", :src => "https://www.paypalobjects.com/ja_JP/i/scr/pixel.gif", :width => "1"}/
+    %ul#ad_free
+      %li 反映に時間がかかる場合がございます。
+      %li 課金は毎月同日に行われます。
+      %li 月末やうるう年の場合は前倒しされます。
+    - if current_user.add_ons.ad_free.first
+      = t "views.option.registered_at"
+      ：#{current_user.add_ons.ad_free.first.created_at.strftime("%Y年%m月%d日")}

@@ -1,0 +1,33 @@
+= form_for(@reply) do |f|
+  - if @reply.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@reply.errors.count, "error")
+        prohibited this reply from being saved:
+      %ul
+        - @reply.errors.full_messages.each do |message|
+          %li= message
+  %h3= t "activerecord.attributes.post.title"
+  %p= @post.title
+  %h3= t "activerecord.attributes.post.text"
+  %p= @post.text
+  - if @post.images
+    - @post.images.each do |image|
+      = link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium)
+  .field
+    = f.label :text
+    %br/
+    = f.text_area :text, rows: 5, class: "form-control"
+  = f.hidden_field :post_id, value: session[:post_id]
+  .field
+    = f.label :name
+    %br/
+    = f.text_field :name, class: "form-control"
+  .field
+    = f.label :email
+    %br/
+    %span.small ＊メールアドレスは公開されません。代わりに沖縄宝島から確認、取引メールを送信いたします。
+    = f.text_field :email, class: "form-control"
+  .actions
+    = f.submit t("helpers.submit.reply"), class: "btn btn-default"
+    = link_to t("links.back"), :back, class: "btn btn-default", data: {no_turbolink: true}
