@@ -5,6 +5,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :trackable , :validatable
 
   has_many :posts
+  has_many :images, as: :imageable
+  accepts_nested_attributes_for :images
 
   has_attached_file :image,
   styles: { medium: "300x300>", thumb: "100x100>" },
@@ -15,4 +17,7 @@ class User < ActiveRecord::Base
   validates_attachment_content_type :image, :content_type => ["image/jpg", "image/jpeg", "image/png", "image/gif"]
   validates :name, presence: true
   validates :name, :email, uniqueness: true
+
+  geocoded_by :address
+  after_validation :geocode
 end

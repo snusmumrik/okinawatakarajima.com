@@ -43,6 +43,7 @@
                 %span.glyphicon.glyphicon-question-sign{"aria-hidden" => "true"}>
                 よくある質問
             - if user_signed_in?
+              %li{data:{no_turbolink: true}}= link_to '<span class="glyphicon glyphicon-user" aria-hidden="true"></span>'.html_safe + t("links.user.show"), user_path(current_user)
               %li= link_to '<span class="glyphicon glyphicon-log-out" aria-hidden="true"></span>'.html_safe + t("links.user.sign_out"), destroy_user_session_path, :method => :delete, data: { confirm: t("messages.sign_out") }
             - else
               %li= link_to '<span class="glyphicon glyphicon-home" aria-hidden="true"></span>'.html_safe + t("links.user.sign_in"), new_user_session_path

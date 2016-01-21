@@ -43,11 +43,14 @@ ja:
         user: :activerecord.models.user  #g
 
       user:
+        address: 住所
+        business_hour: 営業時間
         current_sign_in_at: current_sign_in_at  #g
         current_sign_in_ip: current_sign_in_ip  #g
         email: メールアドレス
         encrypted_password: encrypted_password  #g
-        image: アイコン
+        holiday: 定休日
+        image: 画像
         image_content_type: image_content_type  #g
         image_file_name: image_file_name  #g
         image_file_size: image_file_size  #g
@@ -62,6 +65,7 @@ ja:
         remember_me: パスワードを記憶
         reset_password_sent_at: reset_password_sent_at  #g
         reset_password_token: reset_password_token  #g
+        site: ホームページ
         tel: 電話番号
 
   links:
@@ -83,6 +87,7 @@ ja:
       sign_in_with: でログイン
       sign_out: ログアウト
       sign_up: 新規会員登録
+      show: マイページ
       change_password: パスワードの変更
       reset_password: パスワードの再設定
       forgot_password: パスワードをお忘れですか？
@@ -128,6 +133,10 @@ ja:
       truncate: "..."
 
     user:
+      change_password: パスワードの変更
+      new_password: 新しいパスワード
+      confirm_new_password: パスワードの確認
+      show: ユーザー情報
       sign_in: ログイン
       sign_out: ログアウト
       sign_up: 新規会員登録

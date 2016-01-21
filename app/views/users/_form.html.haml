@@ -1,0 +1,44 @@
+= form_for(@user, multipart: true) do |f|
+  - if @user.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@user.errors.count, "error")
+        prohibited this user from being saved:
+      %ul
+        - @user.errors.full_messages.each do |message|
+          %li= message
+  .field
+    = f.label :name
+    %br
+    = f.text_field :name, class: "form-control"
+  .field
+    = f.label :email
+    %br
+    = f.text_field :email, class: "form-control"
+  .field
+    = f.label :tel
+    %br
+    = f.text_field :tel, class: "form-control"
+  .field
+    = f.label :address
+    %br
+    = f.text_field :address, class: "form-control"
+  .field
+    = f.label :site
+    %br
+    = f.text_field :site, class: "form-control"
+  .field
+    = f.label :business_hour
+    %br
+    = f.text_field :business_hour, class: "form-control"
+  .field
+    = f.label :holiday
+    %br
+    = f.text_field :holiday, class: "form-control"
+  -# %div
+  -#   = f.label :images
+  -#   %br/
+  -#   = f.file_field :images, type: :file, multiple: true
+  .actions
+    = f.submit class: "btn btn-default"
+    = link_to t("links.back"), board_path(session[:board_id]), class: "btn btn-default" rescue link_to t("links.back"), root_path, class: "btn btn-default"

@@ -1,0 +1,56 @@
+%script{:src => "//maps.google.com/maps/api/js?v=3.13&amp;sensor=false&amp;libraries=geometry", :type => "text/javascript"}
+%script{:src => "//google-maps-utility-library-v3.googlecode.com/svn/tags/markerclustererplus/2.0.14/src/markerclusterer_packed.js", :type => "text/javascript"}
+
+.narrow
+  %table.table.table-striped.table-bordered
+    %tr
+      %td=t "activerecord.attributes.user.name"
+      %td
+        %p= @user.name
+        .center= link_to image_tag(@user.image.url(:medium)), @user.image.url(:original), "data-lightbox" => @user.image.url(:original) if @user.image
+    -# %tr
+    -#   %td=t "activerecord.attributes.user.email"
+    -#   %td= @user.email
+    - unless @user.tel.blank?
+      %tr
+        %td=t "activerecord.attributes.user.tel"
+        %td= @user.tel
+    - unless @user.address.blank?
+      %tr
+        %td=t "activerecord.attributes.user.address"
+        %td
+          = @user.address
+          #map
+            %script{:charset => "utf-8", :type => "text/javascript"}
+              handler = Gmaps.build('Google');
+              handler.buildMap({ provider: {}, internal: {id: 'map'}}, function(){
+              markers = handler.addMarkers(#{raw @hash.to_json});
+              handler.bounds.extendWith(markers);
+              handler.fitMapToBounds();
+              handler.getMap().setZoom(16);
+              handler.map.centerOn(marker);
+              });
+    - unless @user.site.blank?
+      %tr
+        %td=t "activerecord.attributes.user.site"
+        %td
+          - if @user.site
+            = link_to @user.site, @user.site
+    - unless @user.business_hour.blank?
+      %tr
+        %td=t "activerecord.attributes.user.business_hour"
+        %td= @user.business_hour
+    - unless @user.holiday.blank?
+      %tr
+        %td=t "activerecord.attributes.user.holiday"
+        %td= @user.holiday
+    - unless @user.images.blank?
+      %tr
+        %td=t "activerecord.attributes.user.image"
+        %td
+          - @user.images.each do |image|
+            = link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium)
+
+  - if user_signed_in? && @user == current_user
+    = link_to t("links.edit"), edit_user_path(@user), class: "btn btn-default"
+  = link_to t("links.back"), :back, class: "btn btn-default", data: {no_turbolink: true}
