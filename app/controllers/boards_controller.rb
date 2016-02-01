@@ -3,10 +3,11 @@ class BoardsController < ApplicationController
 
   respond_to :html
 
-  # def index
-  #   @boards = Board.all
-  #   respond_with(@boards)
-  # end
+  def index
+    # @boards = Board.all
+    # respond_with(@boards)
+    redirect_to root_path
+  end
 
   def show
     @posts = Post.where(["board_id = ?", @board.id]).with_deleted.order("created_at DESC").page(params[:page]).per(10)
