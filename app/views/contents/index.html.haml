@@ -1,8 +1,7 @@
 .narrow
-  .center
-    %p
-      %b
-        %span.red 業者の方はログインより会員登録して投稿してください。一般投稿は登録なしで手軽に投稿できます。
+  .center.red
+    %h1 沖縄の買います、売ります総合掲示板「沖縄宝島」
+    %p 業者の方はログインより会員登録して投稿してください。一般投稿は登録なしで手軽に投稿できます。
   .clear.ad-top
   .container
     .row
@@ -20,14 +19,14 @@
                   %br/
                 - if post.images
                   - post.images.each do |image|
-                    = link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium)
+                    = link_to image_tag(image.url(:thumb), alt: post.title), image.url(:medium), "data-lightbox" => image.url(:medium)
                 .right
                   %span.small= post.created_at.strftime("%Y/%m/%d %H:%M")
       .boards
         %table.table
           %tr
             %th{:colspan => "2"}
-              %span.red 売ります！買います！
+              %strong.red 売ります！買います！
           %tr
             %td ベビー用品
             %td

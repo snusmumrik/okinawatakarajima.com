@@ -5,14 +5,15 @@
       = "（#{@post.board.name} #{@post.board.category}）"
   %table.table.table-striped.table-bordered
     %tr
-      %td.subject= @post.title
+      %td.subject
+        %h2= @post.title
     %tr
       %td
         %div
           %p= simple_format(@post.text)
           - if @post.images
             - @post.images.each do |image|
-              = link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium)
+              = link_to image_tag(image.url(:thumb), alt: @post.title), image.url(:medium), "data-lightbox" => image.url(:medium)
         .right
           .user-info
             - if @post.user && @post.user.image

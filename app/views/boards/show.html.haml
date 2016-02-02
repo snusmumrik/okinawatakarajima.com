@@ -1,6 +1,6 @@
 .narrow
   .center
-    %h2
+    %h1
       = @board.name
       = @board.category
   %p= link_to t("links.new") + t("activerecord.models.post"), "#{new_post_path}/#{@board.id}", class: "btn btn-danger btn-lg"
@@ -16,18 +16,19 @@
   %table.table.table-striped.table-bordered
     - @posts.each do |post|
       %tr.subject
-        %td= link_to post.title, post, data: {no_turbolink: true}
+        %td
+          %h2= link_to post.title, post, data: {no_turbolink: true}
       %tr
         %td
           %div
             %p= simple_format(post.text)
             - if post.images
               - post.images.each do |image|
-                = link_to image_tag(image.url(:thumb)), image.url(:medium), "data-lightbox" => image.url(:medium)
+                = link_to image_tag(image.url(:thumb), alt: post.title), image.url(:medium), "data-lightbox" => image.url(:medium)
           .right
             .user-info
               - if post.user && post.user.image
-                = link_to image_tag(post.user.image.url(:thumb), height:60), post.user.image.url(:medium), "data-lightbox" => post.user.image.url(:medium)
+                = link_to image_tag(post.user.image.url(:thumb), alt: post.user.name, height:60), post.user.image.url(:medium), "data-lightbox" => post.user.image.url(:medium)
                 = link_to post.user.name, user_path(post.user), data: { no_turbolink: true }
               - else
                 = post.name
