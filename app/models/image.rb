@@ -3,6 +3,7 @@ class Image < ActiveRecord::Base
 
   has_attached_file :image,
   styles: { medium: "600x600>", thumb: "100x100#" },
+  convert_options: { thumb: "-quality 75 -strip" },
   url: "/:attachment/:class/:id/:style/:basename.:extension",
   path: ":rails_root/public/:attachment/:class/:id/:style/:basename.:extension",
   default_url: "/:attachment/:class/missing/:style/missing.png",
