@@ -43,8 +43,12 @@ class RepliesController < ApplicationController
       flash[:alert] = "スパム投稿防止の為、受け付けできません。"
       redirect_to root_path
     elsif @reply.save
-      ReplyMailer.new_reply_email(@reply).deliver_now
-      ReplyMailer.reply_notification_email(@reply).deliver_now
+      begin
+        ReplyMailer.new_reply_email(@reply).deliver_now
+        ReplyMailer.reply_notification_email(@reply).deliver_now
+      rescue => ex
+        warn ex.message
+      end
 
       session[:post_id] = nil
       flash[:notice] = "返信しました。ご利用ありがとうございました！"

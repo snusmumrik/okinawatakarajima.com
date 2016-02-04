@@ -46,7 +46,13 @@ class PostsController < ApplicationController
           @post.images.create(image: image)
         }
       end
-      PostMailer.new_post_email(@post).deliver_now
+
+      begin
+        PostMailer.new_post_email(@post).deliver_now
+      rescue => ex
+        warn ex.message
+      end
+
       session[:board_id] = nil
       flash[:notice] = "投稿しました。"
       respond_with(@post, location: board_path(@post.board))
