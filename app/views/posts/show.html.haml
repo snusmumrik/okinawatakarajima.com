@@ -1,12 +1,8 @@
 .narrow
-  .center
-    %h1
-      = @post.title
-      = "（#{@post.board.name} #{@post.board.category}）"
   %table.table.table-striped.table-bordered
     %tr
       %td.subject
-        %h2= @post.title
+        %h1= "#{@post.title}（#{@post.board.name} #{@post.board.category}）"
     %tr
       %td
         %div
