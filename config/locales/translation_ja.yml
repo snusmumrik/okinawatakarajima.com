@@ -105,11 +105,6 @@ ja:
     sign_out: ログアウトしてもよろしいですか？
     successfully_created: を登録しました。
     successfully_updated: を更新しました。
-    cargo:
-      successfully_confirmed: を確定しました。
-      successfully_canceled: をキャンセルしました。
-      successfully_assigned: を受注しました。
-      confirmation_faild: すでに割り当てられています。
 
     offer:
       confirm: 見積を確定してよろしいですか？
