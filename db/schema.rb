@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160121023115) do
+ActiveRecord::Schema.define(version: 20160303020532) do
 
   create_table "admin_users", force: :cascade do |t|
     t.string   "email",               limit: 255, default: "", null: false
@@ -48,6 +48,8 @@ ActiveRecord::Schema.define(version: 20160121023115) do
     t.datetime "deleted_at"
   end
 
+  add_index "images", ["imageable_id"], name: "index_images_on_imageable_id", using: :btree
+
   create_table "posts", force: :cascade do |t|
     t.integer  "user_id",    limit: 4
     t.integer  "board_id",   limit: 4
@@ -64,6 +66,7 @@ ActiveRecord::Schema.define(version: 20160121023115) do
   end
 
   add_index "posts", ["board_id"], name: "index_posts_on_board_id", using: :btree
+  add_index "posts", ["deleted_at", "created_at"], name: "index_posts_on_deleted_at_and_created_at", using: :btree
   add_index "posts", ["user_id"], name: "index_posts_on_user_id", using: :btree
 
   create_table "replies", force: :cascade do |t|
