@@ -32,7 +32,7 @@
                 = link_to post.user.name, user_path(post.user), data: { no_turbolink: true }
               - else
                 = post.name
-              = post.tel
+              = link_to post.tel, "tel:#{post.tel}"
               - if post.sold.nil? && post.deleted_at.blank?
                 = link_to '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>'.html_safe, "#{new_reply_path}/#{post.id}", data: {no_turbolink: true}
               %span.small= post.created_at.strftime("%Y/%m/%d %H:%M")

@@ -1,8 +1,9 @@
 .narrow
   %table.table.table-striped.table-bordered
     %tr
+      %h2.center= link_to "#{@post.board.name} #{@post.board.category}", board_path(@post.board), data: {no_turbolink: true}
       %td.subject
-        %h1= "#{@post.title}（#{@post.board.name} #{@post.board.category}）"
+        %h1= @post.title
     %tr
       %td
         %div
@@ -17,7 +18,7 @@
               = link_to @post.user.name, user_path(@post.user)
             - else
               = @post.name
-            = @post.tel
+            = link_to @post.tel, "tel:#{@post.tel}"
             - if @post.sold.nil? && @post.deleted_at.blank?
               = link_to '<span class="glyphicon glyphicon-envelope" aria-hidden="true"></span>'.html_safe, "#{new_reply_path}/#{@post.id}", data: {no_turbolink: true}
             %span.small= @post.created_at.strftime("%Y/%m/%d %H:%M")
