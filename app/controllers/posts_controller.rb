@@ -34,9 +34,9 @@ class PostsController < ApplicationController
     @board = Board.find(session[:board_id])
 
     body = @post.text
-    jp_length = body.gsub(/[a-zA-Z0-9,.;:'"_\[\]<>\/=\?\(\)\s-]/, "").to_s.split(//).size
+    jp_length = body.gsub(/[a-zA-Z0-9,.;:’'"_\[\]<>\/=\?\(\)\s!-]/, "").to_s.split(//).size
 
-    if jp_length < 5
+    if jp_length < 10
       flash[:alert] = "日本語の入力文字数が少ないためにスパムと判定され、受け付けできません。"
       redirect_to root_path
     elsif @post.save
